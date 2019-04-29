@@ -9,4 +9,21 @@
     <string name="today">TODAY</string>
     <string name="tomorrow">TOMORROW</string>
     <string name="day_after">DAY AFTER</string>
+    <string name="task_name">Task Name:</string>
+    <string name="set_task_name">Task Name:</string>
+    <string name="write_task">Write Task</string>
+    <string name="priority">Priority:</string>
+    <string name="write_priority">Write Priority</string>
+    <string name="estimated_hrs">Estimated Hrs:</string>
+    <string name="hours">Hours</string>
+    <string name="complete_by">Complete by:</string>
+    <string name="date">Date</string>
+    <string name="add">ADD</string>
+    <string-array name="priority">
+        <item>1</item>
+        <item>2</item>
+        <item>3</item>
+        <item>4</item>
+        <item>5</item>
+    </string-array>
 </resources>
