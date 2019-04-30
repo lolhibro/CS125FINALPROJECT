@@ -19,6 +19,11 @@
     <string name="add">ADD</string>
     <string name="date">Date</string>
     <string name="hours">Hours</string>
+    <string name="max_working_hours">Max Working Hours:</string>
+    <string name="hrs">Hrs</string>
+    <string name="done">Done</string>
+    <string name="start">start</string>
+    <string name="done">Done</string>
     <string-array name="priority">
         <item>1</item>
         <item>2</item>

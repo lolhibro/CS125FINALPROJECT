@@ -1,5 +1,6 @@
 package com.example.cs125finalproject;
 
+import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.text.Editable;
@@ -46,6 +47,15 @@ public class NewTaskActivity extends AppCompatActivity implements AdapterView.On
         taskName.addTextChangedListener(addButtonEnabler);
         hours.addTextChangedListener(addButtonEnabler);
         DOC.addTextChangedListener(addButtonEnabler);
+
+        addButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(), MainActivity.class);
+                startActivity(i);
+                setContentView(R.layout.activity_main);
+            }
+        });
     }
 
     private TextWatcher addButtonEnabler = new TextWatcher() {
@@ -74,6 +84,10 @@ public class NewTaskActivity extends AppCompatActivity implements AdapterView.On
         SimpleDateFormat newDateFormat = new SimpleDateFormat("dd/MM/yy", Locale.US);
         try {
             Date newDate = newDateFormat.parse(date);
+            String[] checkDate = date.split("/");
+            if (Integer.parseInt(checkDate[0]) > 31 || Integer.parseInt(checkDate[1]) > 12 || Integer.parseInt(checkDate[2]) != 19) {
+                throw new NullPointerException();
+            }
             return newDate.after(new Date());
         } catch (Exception e) {
             return false;

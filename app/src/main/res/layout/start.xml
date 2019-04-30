@@ -4,30 +4,30 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".SettingsMenuActivity">
+    tools:context=".StartActivity">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <Button
-            android:id="@+id/doneButton"
+            android:id="@+id/startButton"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_alignStart="@+id/toolbar2"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="292dp"
-            android:layout_marginTop="202dp"
-            android:text="@string/done" />
+            android:layout_marginStart="164dp"
+            android:layout_marginTop="368dp"
+            android:text="@string/start" />
 
         <EditText
-            android:id="@+id/maxNumhrs"
+            android:id="@+id/startMaxNumhrs"
             android:layout_width="93dp"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="297dp"
-            android:layout_marginTop="74dp"
+            android:layout_marginStart="295dp"
+            android:layout_marginTop="211dp"
             android:ems="10"
             android:hint="@string/hrs"
             android:importantForAutofill="no"
@@ -35,24 +35,16 @@
             android:textSize="30sp" />
 
         <TextView
-            android:id="@+id/setNumWorkingHrs"
+            android:id="@+id/startSetNumWorkingHrs"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="23dp"
-            android:layout_marginTop="82dp"
+            android:layout_marginStart="18dp"
+            android:layout_marginTop="221dp"
             android:text="@string/max_working_hours"
             android:textSize="30sp" />
 
-        <android.support.v7.widget.Toolbar
-            android:id="@+id/toolbar2"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:background="@android:color/holo_blue_bright"
-            android:minHeight="?attr/actionBarSize"
-            android:theme="?attr/actionBarTheme"
-            app:navigationIcon="@android:drawable/ic_menu_close_clear_cancel"
-            app:title="Settings" />
     </RelativeLayout>
+
 </android.support.constraint.ConstraintLayout>
