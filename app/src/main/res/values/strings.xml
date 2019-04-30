@@ -15,10 +15,10 @@
     <string name="priority">Priority:</string>
     <string name="write_priority">Write Priority</string>
     <string name="estimated_hrs">Estimated Hrs:</string>
-    <string name="hours">Hours</string>
     <string name="complete_by">Complete by:</string>
-    <string name="date">Date</string>
     <string name="add">ADD</string>
+    <string name="date">Date</string>
+    <string name="hours">Hours</string>
     <string-array name="priority">
         <item>1</item>
         <item>2</item>
