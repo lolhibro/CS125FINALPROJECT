@@ -1,7 +1,7 @@
 package com.example.cs125finalproject;
 
-import java.util.Date;
-import java.util.concurrent.TimeUnit;
+import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
 
 public class Task {
     public final int MIN_PRIORITYLVL = 1;
@@ -12,12 +12,23 @@ public class Task {
     private String name;
     private int priorityLvl;
     private int completionHours;
-    private Date dueDate;
-    Date currentDate = new Date();
-    long dayDiff = TimeUnit.DAYS.convert((dueDate.getTime() - currentDate.getTime()), TimeUnit.MILLISECONDS);
+    private LocalDate dueDate;
+    private long dayDiff;
+    private LocalDate currentDate;
+
+    public Task(String setName, int setPriorityLvl, int setCompletionHours, LocalDate setDueDate) {
+        setName(setName);
+        setPriorityLvl(setPriorityLvl);
+        setCompletionHours(setCompletionHours);
+        setDueDate(setDueDate);
+        setDayDiff();
+        currentDate = LocalDate.now();
+    }
 
     public void setName(String setName) {
-        name = setName;
+        if (setName != null) {
+            name = setName;
+        }
     }
     public String getName() {
         return name;
@@ -36,13 +47,25 @@ public class Task {
     public int getCompletionHours() {
         return completionHours;
     }
-    public void setDueDate(Date setDueDate) {
-        dueDate = setDueDate;
+    public LocalDate getCurrentDate() {
+        if (currentDate != null) {
+            return currentDate;
+        }
+        return null;
     }
-    public Date getDueDate() {
+    public void setDueDate(LocalDate setDueDate) {
+        if (setDueDate != null) {
+            dueDate = setDueDate;
+        }
+    }
+    public LocalDate getDueDate() {
         return dueDate;
     }
-
+    public void setDayDiff() {
+        if (dueDate != null && currentDate != null) {
+            dayDiff = ChronoUnit.DAYS.between(getCurrentDate(), getDueDate());
+        }
+    }
     public long getDayDiff() {
         return dayDiff;
     }
