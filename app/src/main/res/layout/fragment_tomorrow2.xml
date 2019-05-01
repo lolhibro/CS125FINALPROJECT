@@ -7,34 +7,59 @@
     tools:context=".TomorrowFragment">
 
     <android.support.constraint.ConstraintLayout
-        android:id="@+id/constraintLayout3"
+        android:id="@+id/constraintLayout4"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".MainActivity$PlaceholderFragment">
 
         <RelativeLayout
-            android:id="@+id/mainRelative"
+            android:id="@+id/mainRelativ2"
             android:layout_width="match_parent"
             android:layout_height="617dp"
             android:layout_marginTop="114dp"
+            android:background="@android:color/darker_gray"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent">
 
-            <android.support.v7.widget.RecyclerView
-                android:id="@+id/tomRecycler"
+            <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="match_parent"
-                android:background="@android:color/darker_gray"
-                android:padding="6dp"
-                android:scrollbars="vertical"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="4dp"
+                android:layout_marginTop="4dp"
+                android:layout_marginEnd="4dp"
+                android:layout_marginBottom="4dp"
+                android:background="@android:color/background_light">
 
-                />
+                <TextView
+                    android:id="@+id/taskNameRecyclerView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="0dp"
+                    android:layout_marginTop="0dp"
+                    android:text="Example"
+                    android:textSize="20sp" />
+
+                <TextView
+                    android:id="@+id/hoursRecyclerView2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentTop="true"
+                    android:layout_marginStart="271dp"
+                    android:layout_marginTop="0dp"
+                    android:text="2h"
+                    android:textSize="30sp" />
+
+            </RelativeLayout>
+
         </RelativeLayout>
 
         <TextView
-            android:id="@+id/day2"
+            android:id="@+id/newday2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginStart="120dp"

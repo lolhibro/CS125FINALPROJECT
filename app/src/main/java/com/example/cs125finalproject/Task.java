@@ -1,4 +1,4 @@
-package com.anandasangli.lib;
+package com.example.cs125finalproject;
 
 import java.util.Date;
 import java.util.concurrent.TimeUnit;
@@ -6,6 +6,8 @@ import java.util.concurrent.TimeUnit;
 public class Task {
     public final int MIN_PRIORITYLVL = 1;
     public final int MAX_PRIORITYLVL = 5;
+
+    public static int newInt;
 
     private String name;
     private int priorityLvl;

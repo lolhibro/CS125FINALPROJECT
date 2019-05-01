@@ -3,6 +3,8 @@ package com.example.cs125finalproject;
 import android.content.Intent;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+import android.support.v7.widget.LinearLayoutManager;
+import android.support.v7.widget.RecyclerView;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -17,6 +19,7 @@ import com.santalu.maskedittext.MaskEditText;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.Locale;
 
@@ -27,6 +30,13 @@ public class NewTaskActivity extends AppCompatActivity implements AdapterView.On
     private EditText hours;
     private MaskEditText DOC;
     private Button addButton;
+    private RecyclerView todayRecyclerView = MainActivity.todayRecyclerView;
+    private RecyclerView tomRecyclerView = MainActivity.tomRecyclerView;
+    private RecyclerView dayAfterRecyclerView = MainActivity.dayAfterRecyclerView;
+    public static ItemAdapter todayAdapter;
+    public static ItemAdapter tomAdapter;
+    public static ItemAdapter dayAfterAdapter;
+    public static boolean add = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -48,14 +58,45 @@ public class NewTaskActivity extends AppCompatActivity implements AdapterView.On
         hours.addTextChangedListener(addButtonEnabler);
         DOC.addTextChangedListener(addButtonEnabler);
 
+        todayRecyclerView.setHasFixedSize(true);
+        todayRecyclerView.setLayoutManager(new LinearLayoutManager(getMainActivityContext.getContext()));
+
+        tomRecyclerView.setHasFixedSize(true);
+        tomRecyclerView.setLayoutManager(new LinearLayoutManager(getMainActivityContext.getContext()));
+
+        dayAfterRecyclerView.setHasFixedSize(true);
+        dayAfterRecyclerView.setLayoutManager(new LinearLayoutManager(getMainActivityContext.getContext()));
+
         addButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent i = new Intent(getApplicationContext(), MainActivity.class);
-                startActivity(i);
-                setContentView(R.layout.activity_main);
+                int numTodayHrs = 0;
+                int numTomHrs = 0;
+                int numDayAfterHrs = 0;
+                // Sends input values to constructor of task, which when input into another function outputs a hashMap...
+                // ...Check for today's, tomorrow's and day after's date in the hash map.
+
+                ArrayList<ItemRecyclerView> todayList = new ArrayList<>();
+                ArrayList<ItemRecyclerView> tomList = new ArrayList<>();
+                ArrayList<ItemRecyclerView> dayAfterList = new ArrayList<>();
+                todayList.add(new ItemRecyclerView(taskName.getText().toString(), Integer.toString(numTodayHrs).concat("h")));
+                tomList.add(new ItemRecyclerView(taskName.getText().toString(), Integer.toString(numTomHrs).concat("h")));
+                dayAfterList.add(new ItemRecyclerView(taskName.getText().toString(), Integer.toString(numDayAfterHrs).concat("h")));
+
+                todayAdapter = new ItemAdapter(todayList);
+                tomAdapter = new ItemAdapter(tomList);
+                dayAfterAdapter = new ItemAdapter(dayAfterList);
+                add = true;
+
+                heh();
             }
         });
+    }
+
+    public void heh() {
+        Intent i = new Intent(this, MainActivity.class);
+        startActivity(i);
+        setContentView(R.layout.activity_main);
     }
 
     private TextWatcher addButtonEnabler = new TextWatcher() {

@@ -23,7 +23,7 @@
     <string name="hrs">Hrs</string>
     <string name="done">Done</string>
     <string name="start">start</string>
-    <string name="done">Done</string>
+    <string name="task_name_recyclerview">Task Name</string>
     <string-array name="priority">
         <item>1</item>
         <item>2</item>
